@@ -1,239 +1,215 @@
+<!-- Materialize CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="components/angular/angular.js"></script>
+<script src="components/angular-materializecss-datepicker/angular-materializecss-datepicker.js"></script>
 
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-<form>
-
-  <div class="form-group">
-      <label 
-        for="firstName">
-        Prénom
-      </label>
-      <input 
-        required ngModel name= "firstName" 
-        #firstName="ngModel" 
-        id="firstName" 
-        class="form-control ng-invalid" 
-        type="text"
-      >
-      <div 
-        class="alert alert-danger" 
-        *ngIf="firstName.touched && !firstName.valid">
-        Un prénom est requis
-      </div>
-  </div>
-
-  <div class="form-group">
-    <label 
-      for="lastName">
-      Nom
-    </label>
-    <input 
-      required ngModel name= "lastName" 
-      #lastName="ngModel" 
-      id="lastName" 
-      class ="form-control ng-invalid" 
-      type="text"
-    >
-    <div 
-      class="alert alert-danger" 
-      *ngIf=" lastName.touched && !lastName.valid">
-      Un Nom de famille est requis
+<nav>
+    <div class="nav-wrapper blue darken-2">
+      <a href="#" class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/fr/c/cd/Logo_P%C3%B4le_Emploi.png" height=70px>
+      </a>
+      <ul id="nav-mobile" class="right">
+      </ul>
     </div>
-  </div> 
+</nav>
 
-  <div class="form-group">
-    <label 
-      for="nationality">
-      Nationalité
-    </label>
-    <input 
-      required ngModel name= "nationality" 
-      #nationality="ngModel" 
-      id="nationality" 
-      class ="form-control ng-invalid" 
-      type="text"
-    >
-    <div 
-      class="alert alert-danger" 
-      *ngIf=" nationality.touched && !nationality.valid">
-      Une nationalité est requise
+<form class="col s6">
+  <div class="row">
+    <div class="col s3" ></div>
+    <div class="input-field col s6">
+        <i class="material-icons prefix">person</i>
+        <input required ngModel name= "firstName" #firstName="ngModel" id="firstName" type="text" class="form-control ng-invalid">
+        <label for="firstName">Prénom</label>
+        <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
+          Un prénom est requis
+        </div>
     </div>
   </div>
-
-  
-  <div class = "form-group">               
-    <label
-      for="birthdate">
-      Date de Naissance
-    </label>              
-    <input 
-      required ngModel name= "birthdate" 
-      #birthdate="ngModel" 
-      id="birthdate" 
-      type = "date" 
-      class = "datepicker " 
-    />
-  </div>
-  
-  <div class="form-group">
-    <label 
-      for="actualCountry">
-      Pays actuel de résidence
-    </label>
-    <input 
-      required ngModel name= "actualCountry" 
-      #actualCountry="ngModel" 
-      id="actualCountry" 
-      class="form-control ng-invalid" 
-      type="text"
-    >
-    <div 
-      class="alert alert-danger" 
-      *ngIf="actualCountry.touched && !actualCountry.valid">
-      Un pays actuel de résidence est requis
-    </div>
-  </div>
-  
-  <div class="form-group">
-    <label 
-      for="addressNumber">
-      Adresse (numéro)
-    </label>
-    <input 
-      required ngModel name= "addressNumber" 
-      #addressNumber="ngModel" 
-      id="addressNumber" 
-      class="form-control ng-invalid" 
-      type="text"
-    >
-    <div 
-      class="alert alert-danger" 
-      *ngIf="addressNumber.touched && !addressNumber.valid">
-      Un numéro d'adresse est requis
-    </div>
-  </div>
-  
-  <div class="form-group">
-    <label 
-      for="addressStreet">
-      Adresse (rue)
-    </label>
-    <input 
-      required ngModel name= "addressStreet" 
-      #addressStreet="ngModel" 
-      id="addressStreet" 
-      class="form-control ng-invalid" 
-      type="text"
-    >
-    <div 
-      class="alert alert-danger" 
-      *ngIf="addressStreet.touched && !addressStreet.valid">
-      Une rue est requise
-    </div>
-  </div> 
-
-  <div class="form-group">
-    <label 
-      for="postalCode">
-      Code Postal
-    </label>
-    <input 
-      required ngModel name= "postalCode" 
-      #postalCode="ngModel" 
-      id="postalCode" 
-      class="form-control ng-invalid" 
-      type="number"
-    >
-    <div 
-    class="alert alert-danger" 
-    *ngIf=" lastName.touched && !lastName.valid">
-    Un Nom de famille est requis
-  </div>
-
-    <div 
-      class="alert alert-danger" 
-      *ngIf="postalCode.touched && !postalCode.valid">
-      Un code postal est requis
-    </div>
-    
-    <label 
-      for="city">
-      Ville
-    </label>
-    <input
-      required ngModel name="city"
-      #city="ngModel"
-      id="city"
-      class="form-control ng-invlid"
-      type="text"
-    >
-    <div 
-      class="alert alert-danger" 
-      *ngIf="city.touched && !city.valid">
-      Une ville est requise
-    </div>
-  </div> 
-
-  <div class="form-group">
-    <label 
-      for="country">
-      Pays
-    </label>
-    <input 
-      required ngModel name= "country" 
-      #country="ngModel" 
-      id="country" 
-      class="form-control ng-invalid" 
-      type="text"
-    >
-    <div 
-      class="alert alert-danger" 
-      *ngIf="country.touched && !country.valid">
-      Un pays est requis
-    </div>
-  </div> 
-
-  <div class="form-group">
-    <label 
-      for="phone">
-      Téléphone
-    </label>
-    <input 
-      required ngModel name= "phone" 
-      #phone="ngModel" 
-      id="phone" 
-      class="form-control ng-invalid" 
-      type="text"
-    >
-    <div 
-      class="alert alert-danger" 
-      *ngIf="phone.touched && !phone.valid">
-      Un téléphone est requis
-    </div>
-  </div>
-  
-  <div class="form-group">
-    <label 
-      for="mailAddress">
-      Adresse e-mail
-    </label>
-    <input 
-      required ngModel name= "mailAddress" 
-      #mailAddress="ngModel" 
-      id="mailAddress" 
-      class="form-control ng-invalid" 
-      type="text"
-    >
-    <div 
-      class="alert alert-danger" 
-      *ngIf="mailAddress.touched && !mailAddress.valid">
-      Une adresse e-mail est requise
-    </div>
-  </div> 
-
-  <button class="btn waves-effect waves-light" type="submit" name="action">Soumettre
-    <i class="material-icons right-align">send</i>
-  </button>
-
-
 </form>
+
+<form class="col s6">
+  <div class="row">
+    <div class="col s3"></div>
+    <div class="input-field col s6">
+      <i class="material-icons prefix">person</i>
+      <input required ngModel name= "lastName" #lastName="ngModel" id="lastName" type="text" class="form-control ng-invalid">
+      <label for="lastName">Nom</label>
+      <div class="alert alert-danger" *ngIf="lastName.touched && !lastName.valid">
+          Un nom de famille est requis
+      </div>
+    </div>
+  </div>
+</form>
+
+<form class="col s6">
+  <div class="row">
+    <div class="col s3"></div>
+    <div class="input-field col s6">
+      <i class="material-icons prefix">flag</i>
+      <input required ngModel name= "nationality" #nationality="ngModel" id="nationality" type="text" class="form-control ng-invalid">
+      <label for="nationality">Nationalité</label>
+      <div class="alert alert-danger" *ngIf="nationality.touched && !nationality.valid">
+          Une nationalité est requise
+      </div>
+    </div>
+  </div>
+</form>
+
+<form class="col s6">
+  <div class="row">
+    <div class="col s3"></div>
+    <div class = "active col s6">             
+      <label for="birthdate">
+        Date de Naissance
+      </label> 
+      <input required ngModel name= "birthdate" #birthdate="ngModel" id="birthdate" type = "date" class = "datepicker "/>
+    </div>
+  </div>
+</form>
+
+<form class="col s6">
+    <div class="row">
+      <div class="col s3"></div>
+      <div class="input-field col s6">
+        <i class="material-icons prefix">home</i>
+        <input required ngModel name= "actualCountry" #actualCountry="ngModel" id="actualCountry" type="text" class="form-control ng-invalid">
+        <label for="actualCountry">Pays actuel de résidence</label>
+        <div class="alert alert-danger" *ngIf="actualCountry.touched && !actualCountry.valid">
+            Un pays actuel de résidence est requis
+        </div>
+      </div>
+    </div>
+</form>
+
+<form class="col s6">
+    <div class="row">
+      <div class="col s3"></div>
+      <div class="input-field col s6">
+        <i class="material-icons prefix">create</i>
+        <input required ngModel name= "addressNumber" #addressNumber="ngModel" id="addressNumber" type="text" class="form-control ng-invalid">
+        <label for="addressNumber">Adresse (Numéro)</label>
+        <div class="alert alert-danger" *ngIf="addressNumber.touched && !addressNumber.valid">
+            Un numéro d'adresse est requis
+        </div>
+      </div>
+    </div>
+</form>
+
+<form class="col s6">
+    <div class="row">
+      <div class="col s3"></div>
+      <div class="input-field col s6">
+        <i class="material-icons prefix">create</i>
+        <input required ngModel name= "addressStreet" #addressStreet="ngModel" id="addressStreet" type="text" class="form-control ng-invalid">
+        <label for="addressStreet">Adresse (rue)</label>
+        <div class="alert alert-danger" *ngIf="addressStreet.touched && !addressStreet.valid">
+            Une rue est requise
+        </div>
+      </div>
+    </div>
+</form>
+
+<form class="col s6">
+    <div class="row">
+      <div class="col s3"></div>
+      <div class="input-field col s6">
+        <i class="material-icons prefix">create</i>
+        <input required ngModel name= "postalCode" #postalCode="ngModel" id="postalCode" type="text" class="form-control ng-invalid">
+        <label for="postalCode">Code postal</label>
+        <div class="alert alert-danger" *ngIf="postalCode.touched && !postalCode.valid">
+            Un code postal est requis
+        </div>
+      </div>
+    </div>
+</form>
+
+<form class="col s6">
+    <div class="row">
+      <div class="col s3"></div>
+      <div class="input-field col s6">
+        <i class="material-icons prefix">home</i>
+        <input required ngModel name= "city" #city="ngModel" id="city" type="text" class="form-control ng-invalid">
+        <label for="city">Ville</label>
+        <div class="alert alert-danger" *ngIf="city.touched && !city.valid">
+            Une ville est requise
+        </div>
+      </div>
+    </div>
+</form>
+
+<form class="col s6">
+    <div class="row">
+      <div class="col s3"></div>
+      <div class="input-field col s6">
+        <i class="material-icons prefix">local_airport</i>
+        <input required ngModel name= "country" #country="ngModel" id="country" type="text" class="form-control ng-invalid">
+        <label for="country">Adresse (Pays)</label>
+        <div class="alert alert-danger" *ngIf="country.touched && !country.valid">
+            Un pays est requis
+        </div>
+      </div>
+    </div>
+</form>
+
+<form class="col s6">
+    <div class="row">
+      <div class="col s3"></div>
+      <div class="input-field col s6">
+        <i class="material-icons prefix">local_phone</i>
+        <input required ngModel name= "phoneNumber" #phoneNumber="ngModel" id="phoneNumber" type="text" class="form-control ng-invalid">
+        <label for="phoneNumber">Téléphone</label>
+        <div class="alert alert-danger" *ngIf="phoneNumber.touched && !phoneNumber.valid">
+            Un numéro de téléphone est requis
+        </div>
+      </div>
+    </div>
+</form>
+
+<form class="col s6">
+  <div class="row">
+    <div class="col s3"></div>
+    <div class="input-field col s6">
+      <i class="material-icons prefix">email</i>
+      <input required ngModel name= "email" #email="ngModel" id="email" type="email" class="form-control ng-invalid">
+      <label for="email">Adresse mail</label>
+      <span class="helper-text" data-error="Ceci n'est pas une adresse mail"></span>
+      <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+          Une adresse e-mail est requise
+      </div>
+    </div>
+  </div>
+</form>
+
+<form class="col s6">
+  <div class="row">
+    <div class="col s3"></div>
+    <div class="col s6">
+      <button class="btn waves-effect waves-light blue darken-2" type="submit" name="action" (click)="sendMessage(input.value)">Soumettre
+      <i class="material-icons right-align">send</i>
+      </button>
+    </div>
+  </div>
+</form>
+
+
+<footer class="page-footer blue darken-2">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Pôle emploi</h5>
+          <p class="grey-text ">Tous nos formulaires sont validés par le gouvernement français</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      © 2018 Copyright Text
+      <a class="grey-text text-lighten-4 right" href="#!">EPSI WORKSHOP 2018</a>
+      </div>
+    </div>
+  </footer>
+      
