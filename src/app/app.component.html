@@ -15,7 +15,8 @@
     </div>
 </nav>
 
-<form class="col s6">
+<form class="col s6" #f="ngForm" (ngSubmit)="addPost(f)" >
+
   <div class="row">
     <div class="col s3" ></div>
     <div class="input-field col s6">
@@ -27,9 +28,9 @@
         </div>
     </div>
   </div>
-</form>
 
-<form class="col s6">
+
+
   <div class="row">
     <div class="col s3"></div>
     <div class="input-field col s6">
@@ -41,9 +42,9 @@
       </div>
     </div>
   </div>
-</form>
 
-<form class="col s6">
+
+
   <div class="row">
     <div class="col s3"></div>
     <div class="input-field col s6">
@@ -55,9 +56,9 @@
       </div>
     </div>
   </div>
-</form>
 
-<form class="col s6">
+
+
   <div class="row">
     <div class="col s3"></div>
     <div class = "active col s6">             
@@ -67,9 +68,9 @@
       <input required ngModel name= "birthdate" #birthdate="ngModel" id="birthdate" type = "date" class = "datepicker "/>
     </div>
   </div>
-</form>
 
-<form class="col s6">
+
+
     <div class="row">
       <div class="col s3"></div>
       <div class="input-field col s6">
@@ -81,9 +82,9 @@
         </div>
       </div>
     </div>
-</form>
 
-<form class="col s6">
+
+
     <div class="row">
       <div class="col s3"></div>
       <div class="input-field col s6">
@@ -95,9 +96,8 @@
         </div>
       </div>
     </div>
-</form>
 
-<form class="col s6">
+
     <div class="row">
       <div class="col s3"></div>
       <div class="input-field col s6">
@@ -109,23 +109,24 @@
         </div>
       </div>
     </div>
-</form>
 
-<form class="col s6">
+
+
     <div class="row">
       <div class="col s3"></div>
       <div class="input-field col s6">
         <i class="material-icons prefix">create</i>
-        <input required ngModel name= "postalCode" #postalCode="ngModel" id="postalCode" type="text" class="form-control ng-invalid">
+        <input required ngModel name= "postalCode" #postalCode="ngModel" id="postalCode" type="text" class="form-control ng-invalid"
+        pattern="[0-9]{5}">
         <label for="postalCode">Code postal</label>
         <div class="alert alert-danger" *ngIf="postalCode.touched && !postalCode.valid">
-            Un code postal est requis
+            Un code postal correct est requis
         </div>
       </div>
     </div>
-</form>
 
-<form class="col s6">
+
+
     <div class="row">
       <div class="col s3"></div>
       <div class="input-field col s6">
@@ -137,62 +138,62 @@
         </div>
       </div>
     </div>
-</form>
 
-<form class="col s6">
+
+
     <div class="row">
       <div class="col s3"></div>
       <div class="input-field col s6">
         <i class="material-icons prefix">local_airport</i>
         <input required ngModel name= "country" #country="ngModel" id="country" type="text" class="form-control ng-invalid">
-        <label for="country">Adresse (Pays)</label>
+        <label for="country">Pays </label>
         <div class="alert alert-danger" *ngIf="country.touched && !country.valid">
             Un pays est requis
         </div>
       </div>
     </div>
-</form>
 
-<form class="col s6">
+
     <div class="row">
       <div class="col s3"></div>
       <div class="input-field col s6">
         <i class="material-icons prefix">local_phone</i>
-        <input required ngModel name= "phoneNumber" #phoneNumber="ngModel" id="phoneNumber" type="text" class="form-control ng-invalid">
+        <input required ngModel name= "phoneNumber" #phoneNumber="ngModel" id="phoneNumber" type="text" class="form-control ng-invalid"
+        pattern="0[1-9][0-9]{8}">
         <label for="phoneNumber">Téléphone</label>
         <div class="alert alert-danger" *ngIf="phoneNumber.touched && !phoneNumber.valid">
-            Un numéro de téléphone est requis
+            Un numéro de téléphone à 10 chiffres est requis
         </div>
       </div>
     </div>
-</form>
 
-<form class="col s6">
+
+
   <div class="row">
     <div class="col s3"></div>
     <div class="input-field col s6">
       <i class="material-icons prefix">email</i>
-      <input required ngModel name= "email" #email="ngModel" id="email" type="email" class="form-control ng-invalid">
+      <input required ngModel name= "email" #email="ngModel" id="email" type="email" class="form-control ng-invalid"
+      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
       <label for="email">Adresse mail</label>
-      <span class="helper-text" data-error="Ceci n'est pas une adresse mail"></span>
+      <span class="helper-text" data-error="Ceci n'est pas une adresse mail" data-success="right"></span>
       <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
-          Une adresse e-mail est requise
+          Une adresse e-mail correcte est requise
       </div>
     </div>
   </div>
-</form>
 
-<form class="col s6">
   <div class="row">
     <div class="col s3"></div>
     <div class="col s6">
-      <button class="btn waves-effect waves-light blue darken-2" type="submit" name="action" (click)="sendMessage(input.value)">Soumettre
+      <button class="btn waves-effect waves-light blue darken-2" type="submit" name="action" (click)="sendMessage()">
+        Soumettre
       <i class="material-icons right-align">send</i>
       </button>
     </div>
   </div>
-</form>
 
+</form>
 
 <footer class="page-footer blue darken-2">
     <div class="container">

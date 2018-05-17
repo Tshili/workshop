@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {NgForm} from '@angular/forms';
 import * as SockJS from 'sockjs-client';
 import * as $ from 'jquery';
 import * as Stomp from 'stompjs';
@@ -16,8 +17,23 @@ export class AppComponent {
   post : any;
   description:string = '';
   name:string = '';
+  
+  infos : {
+    firstName:string,
+    lastName:string,
+    nationality:string,
+    bithdate:Date,
+    actualCountry:string,
+    addressNumber:number,
+    addressStreet:string,
+    postalCode:number,
+    city:string,
+    country:string,
+    phoneNumber:number,
+    email:string
+  }
 
-  private serverUrl = 'http://localhost:8080/websocket-backend/socket'
+  private serverUrl = 'http://localhost:8181/websocket-backend/socket'
   private title = 'WebSockets chat';
   private stompClient;
   public notifications = 1;
@@ -31,10 +47,17 @@ export class AppComponent {
   this.initializeWebSocketConnection();
 }
 
-addPost(post){
-this.description = post.description;
-this.name = post.name;
-}
+addPost(f: NgForm){
+  console.log("je suis le message");
+  console.log(f.value);
+  
+  this.stompClient.send("/app/send/message" , {}, this.notifications ++);
+      console.log("je suis le send message");
+      
+      console.log("jajoute une notification");
+      console.log(this.notifications);
+      $('#input').val('');
+  }
 
 initializeWebSocketConnection(){
   let ws = new SockJS(this.serverUrl);
@@ -51,11 +74,10 @@ initializeWebSocketConnection(){
   });
 }
 
-sendMessage(message){
-  //this.stompClient.send("/app/send/message" , {}, message);
+sendMessage(infos){
   this.stompClient.send("/app/send/message" , {}, this.notifications ++);
   console.log("Je suis le message envoyé");
-  console.log(message);
+  console.log(infos);
   console.log("J'ajoute une notification");
   console.log(this.notifications);
   $('#input').val('');
